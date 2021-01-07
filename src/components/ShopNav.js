@@ -4,11 +4,11 @@ export default function ShopNav({ changeTab }) {
   return (
     <nav>
       <ul>
-        <li id="sweaters" onClick={changeTab}>
+        <li id="sweater" onClick={changeTab}>
           Sweaters
         </li>
 
-        <li id="shirts" onClick={changeTab}>
+        <li id="shirt" onClick={changeTab}>
           Shirts
         </li>
 

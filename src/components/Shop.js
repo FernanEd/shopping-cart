@@ -4,15 +4,15 @@ import shopItems from '../data.js';
 import ShopNav from './ShopNav.js';
 
 export default function Shop() {
-  const [tab, setTab] = useState('sweaters');
+  const [tab, setTab] = useState('sweater');
   const [displayedItems, setDisplayedItems] = useState(shopItems);
 
   const changeTab = (e) => {
-    //setTab(e.target.id);
+    setTab(e.target.id);
   };
 
   useEffect(() => {
-    //setDisplayedItems(shopItems[tab]);
+    setDisplayedItems(shopItems.filter((item) => item.type === tab));
   }, [tab]);
 
   return (
@@ -21,8 +21,8 @@ export default function Shop() {
       <ShopNav changeTab={changeTab} />
       <div>
         Items {tab}
-        {displayedItems.map((item) => {
-          let { id, type, price, color, imgsrc } = item;
+        {displayedItems.map((itemData) => {
+          let { id, type, price, color, imgsrc } = itemData;
           return (
             <div key={id}>
               <Link to={`/shop/${id}`}>
