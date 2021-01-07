@@ -16,8 +16,8 @@ export default function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/about" component={Aboutpage} />
           <Route path="/shop/:itemID" component={Item} />
-          <Route path="/about" component={Aboutpage} />
         </Switch>
       </BrowserRouter>
     </div>

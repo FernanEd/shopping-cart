@@ -1,24 +1,38 @@
-import { useEffect } from 'react';
-import '../data.js';
+import { useEffect, useState } from 'react';
+import { BrowserRouter, Link } from 'react-router-dom';
 import shopItems from '../data.js';
+import ShopNav from './ShopNav.js';
 
 export default function Shop() {
-  let { sweaters } = shopItems;
+  const [tab, setTab] = useState('sweaters');
+  const [displayedItems, setDisplayedItems] = useState(shopItems);
+
+  const changeTab = (e) => {
+    //setTab(e.target.id);
+  };
 
   useEffect(() => {
-    console.log(sweaters);
-  }, []);
+    //setDisplayedItems(shopItems[tab]);
+  }, [tab]);
 
   return (
     <div>
       Shop
+      <ShopNav changeTab={changeTab} />
       <div>
-        Items
-        {sweaters.map((sweater) => (
-          <div>
-            {sweater.color} <img src={sweater.imgsrc} />
-          </div>
-        ))}
+        Items {tab}
+        {displayedItems.map((item) => {
+          let { id, type, price, color, imgsrc } = item;
+          return (
+            <div key={id}>
+              <Link to={`/shop/${id}`}>
+                <div>{`${color} ${type}`}</div>
+                <img src={imgsrc} />
+                <div>{`$ ${price}`}</div>
+              </Link>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

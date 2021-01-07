@@ -1,50 +1,212 @@
-function getItems(srcTemplate) {
-  const brands = ['adidas', 'polo', 'nike'];
-
-  const colors = [
-    'orange',
-    'yellow',
-    'lime',
-    'green',
-    'cyan',
-    'blue',
-    'purple',
-    'magenta',
-    'pink',
-    'red',
-  ];
-
-  let itemArr = [];
-
-  let brandIndx = -1;
-  for (let n of [...Array(30).keys()]) {
-    let indxStr = n.toString();
-    let relativeIndx = indxStr.slice(indxStr.length - 1);
-
-    // Every 10 indexes, move to next brand
-    if (n % 10 == 0) brandIndx++;
-
-    let item = {
-      brand: brands[brandIndx],
-      color: colors[relativeIndx],
-      imgsrc: srcTemplate.replace('BLANK', indxStr),
-    };
-
-    itemArr.push(item);
-  }
-
-  return itemArr;
-}
-
-let sweaters = getItems(
-  `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_BLANK.png`
-);
-
-let pants = getItems(`${process.env.PUBLIC_URL}/images/Pants/Pants_BLANK.png`);
-let shirts = getItems(
-  `${process.env.PUBLIC_URL}/images/Shirts/Shirt_BLANK.png`
-);
-
-const shopItems = { sweaters, pants, shirts };
-
-export default shopItems;
+export default [
+  {
+    id: '29a7a87b1f1fd2816a42c3d88fd977efa1ad88d2',
+    type: 'sweater',
+    price: 12.22,
+    color: 'orange',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_0.png`,
+  },
+  {
+    id: 'a8483e11cf5a320e6d9d9f793014d58c363c8976',
+    type: 'sweater',
+    price: 15.33,
+    color: 'yellow',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_1.png`,
+  },
+  {
+    id: 'a65b9b7a300e08dcc08c78a5a04f3338915bce1c',
+    type: 'sweater',
+    price: 12.13,
+    color: 'lime',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_2.png`,
+  },
+  {
+    id: '6898c733ce8817f8c77243cda3b4684d4305fe70',
+    type: 'sweater',
+    price: 15.66,
+    color: 'green',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_3.png`,
+  },
+  {
+    id: '9744fc4c6734d0826e979fff91a139674abff76d',
+    type: 'sweater',
+    price: 14.42,
+    color: 'cyan',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_4.png`,
+  },
+  {
+    id: '31c608193733daecfb4758b6397b5448a6c39cdb',
+    type: 'sweater',
+    price: 13.83,
+    color: 'blue',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_5.png`,
+  },
+  {
+    id: 'c3dea1b2f49eeac47a0a4886b1586680a853647e',
+    type: 'sweater',
+    price: 16.34,
+    color: 'purple',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_6.png`,
+  },
+  {
+    id: '9476b1089159e2eddae1ed7d93f7f2dff0c1bf46',
+    type: 'sweater',
+    price: 14.94,
+    color: 'magenta',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_7.png`,
+  },
+  {
+    id: '2b8f886d507a40efb00ef165bf25cdbf5481d9ef',
+    type: 'sweater',
+    price: 15.25,
+    color: 'pink',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_8.png`,
+  },
+  {
+    id: '4ae309d56ff5d7b54ac351f6ac4f05445e0552bd',
+    type: 'sweater',
+    price: 16.03,
+    color: 'red',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Sweaters/Sweater_9.png`,
+  },
+  {
+    id: 'f31d3929162a1c9117345c46ffd7d0e7706d24c9',
+    type: 'pants',
+    price: 14.38,
+    color: 'orange',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_0.png`,
+  },
+  {
+    id: 'd9a2f3ec379f297e3239fc6ea4a7ef9a51971cf8',
+    type: 'pants',
+    price: 14.15,
+    color: 'yellow',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_1.png`,
+  },
+  {
+    id: 'c1a4fed0b05249936ea10788eb82cea38e0730d2',
+    type: 'pants',
+    price: 15.25,
+    color: 'lime',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_2.png`,
+  },
+  {
+    id: 'cc3c253cca1c420645a256cb7bbcd60219c9643a',
+    type: 'pants',
+    price: 14.47,
+    color: 'green',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_3.png`,
+  },
+  {
+    id: '7e484bfc4be8e0ccd09397bd2be8d8729088f5e9',
+    type: 'pants',
+    price: 15.43,
+    color: 'cyan',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_4.png`,
+  },
+  {
+    id: '4538a327f2aac3b12fd230f67bb897fcc9469b37',
+    type: 'pants',
+    price: 18.69,
+    color: 'blue',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_5.png`,
+  },
+  {
+    id: '263979e55c3d15add8afc6b23835da92d82749b3',
+    type: 'pants',
+    price: 15.06,
+    color: 'purple',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_6.png`,
+  },
+  {
+    id: '5f6a41ebb4c6459aec55f349fe5e9d3dcad2d579',
+    type: 'pants',
+    price: 15.2,
+    color: 'magenta',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_7.png`,
+  },
+  {
+    id: 'a528d50c9faeaf3cbec0c85c2b108f769df900fc',
+    type: 'pants',
+    price: 18.51,
+    color: 'pink',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_8.png`,
+  },
+  {
+    id: '0359e7e11a0ab6e8a0c0cc13c0e961c59e60ca1f',
+    type: 'pants',
+    price: 17.45,
+    color: 'red',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Pants/Pants_9.png`,
+  },
+  {
+    id: '9d64bb17e883e3b3dd9a973d5ac5dee44a34e645',
+    type: 'shirt',
+    price: 12.45,
+    color: 'orange',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_0.png`,
+  },
+  {
+    id: '2c6e7a61c7f349deac1d457634c3aa2d0ada54b1',
+    type: 'shirt',
+    price: 8.7,
+    color: 'yellow',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_1.png`,
+  },
+  {
+    id: 'f95570da2c0296795d13379e013f27063d42157c',
+    type: 'shirt',
+    price: 9.84,
+    color: 'lime',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_2.png`,
+  },
+  {
+    id: '40905407ae17685148689e31a4da14fe055881d9',
+    type: 'shirt',
+    price: 8.09,
+    color: 'green',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_3.png`,
+  },
+  {
+    id: '8c44efe5b4d39b4900b8be9a2de348c94a79d04b',
+    type: 'shirt',
+    price: 11.81,
+    color: 'cyan',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_4.png`,
+  },
+  {
+    id: '45c0ce0f6f527639f8eb5a74b9f4d71b1ce39eef',
+    type: 'shirt',
+    price: 12.61,
+    color: 'blue',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_5.png`,
+  },
+  {
+    id: 'd8d5a0a1591368032e2daa2a1e26cf7f3bee3576',
+    type: 'shirt',
+    price: 10.88,
+    color: 'purple',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_6.png`,
+  },
+  {
+    id: '641d8e895c0f1d64ca98582e508d83312eacd7d7',
+    type: 'shirt',
+    price: 9.69,
+    color: 'magenta',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_7.png`,
+  },
+  {
+    id: '95c999c11ea664c70b862459b83d7da520c2d001',
+    type: 'shirt',
+    price: 9.47,
+    color: 'pink',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_8.png`,
+  },
+  {
+    id: 'd64b7bea7c29addec4c074a83d7a5f25955a249e',
+    type: 'shirt',
+    price: 8.23,
+    color: 'red',
+    imgsrc: `${process.env.PUBLIC_URL}/images/Shirts/Shirt_9.png`,
+  },
+];
