@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
 
-export default function Navbar({ cartItems }) {
+export default function Navbar({ itemsInCart }) {
   return (
     <nav>
-      {cartItems ? `${cartItems} items in cart` : '0 items in cart'}
+      <div>{itemsInCart()} items in cart</div>
+
       <ul>
         <Link to="/">
           <li>Home</li>

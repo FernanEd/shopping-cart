@@ -10,10 +10,40 @@ import Cart from './components/Cart';
 export default function App() {
   let [cartItems, setCartItems] = useState([]);
 
+  const itemsInCart = () => {
+    return cartItems.map((item) => item.quantity).reduce((a, b) => a + b, 0);
+  };
+
   const addItem = (item) => {
-    let newItems = [...cartItems];
-    newItems.push(item);
-    setCartItems(newItems);
+    let itemExists = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (itemExists) {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...itemExists, quantity: itemExists.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+  };
+
+  const removeItem = (item) => {
+    let itemToRemove = cartItems.find((cartItem) => cartItem.id === item.id);
+
+    if (itemToRemove.quantity === 1) {
+      setCartItems(cartItems.filter((cartItem) => cartItem.id !== item.id));
+    } else {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...itemToRemove, quantity: itemToRemove.quantity - 1 }
+            : cartItem
+        )
+      );
+    }
   };
 
   useEffect(async () => {}, []);
@@ -21,7 +51,7 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar cartItems={cartItems.length} />
+        <Navbar itemsInCart={() => itemsInCart()} />
         <Switch>
           <Route exact path="/" render={(props) => <Homepage {...props} />} />
           <Route exact path="/shop" render={(props) => <Shop {...props} />} />
@@ -37,7 +67,9 @@ export default function App() {
           <Route
             exact
             path="/cart"
-            render={(props) => <Cart {...props} cartItems={cartItems} />}
+            render={(props) => (
+              <Cart {...props} cartItems={cartItems} removeItem={removeItem} />
+            )}
           />
         </Switch>
       </BrowserRouter>

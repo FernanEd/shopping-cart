@@ -22,13 +22,13 @@ export default function Shop() {
       <div>
         Items {tab}
         {displayedItems.map((itemData) => {
-          let { id, type, price, color, imgsrc } = itemData;
+          let { id, name, price, imgsrc } = itemData;
           return (
             <div key={id}>
               <Link to={`/shop/${id}`}>
-                <div>{`${color} ${type}`}</div>
+                <div>{name}</div>
                 <img src={imgsrc} />
-                <div>{`$ ${price}`}</div>
+                <div>$ {price}</div>
               </Link>
             </div>
           );

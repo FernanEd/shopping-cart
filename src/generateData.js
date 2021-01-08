@@ -21,6 +21,7 @@ function getItems(type, baseprice, srcTemplate) {
   for (let i = 0; i <= 9; i++) {
     let item = {
       id: objectHash(`${type}_${i}`),
+      name: capitalStr(`${colors[i]} ${type}`),
       type,
       price: Math.round((baseprice + Math.random() * 5) * 100) / 100,
       color: colors[i],
@@ -53,3 +54,8 @@ let shirts = getItems(
 const shopItems = [...sweaters, ...pants, ...shirts];
 
 console.log(shopItems);
+
+function capitalStr(str) {
+  let firstLetter = str[0].toUpperCase();
+  return firstLetter + str.slice(1);
+}
