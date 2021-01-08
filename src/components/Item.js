@@ -26,7 +26,7 @@ export default function Item({ match, addItem }) {
             <AiOutlinePlusCircle />
             Add to cart
           </button>
-          <Link to="/cart">
+          <Link to="/shopping-cart/cart">
             <button className="btn btn-secondary">
               <AiOutlineShoppingCart />
               Payout

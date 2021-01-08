@@ -23,7 +23,7 @@ export default function Cart({ cartItems, removeItem }) {
             </div>
             <div className="cart-item-details">
               <div>
-                <Link to={`/shop/${id}`}>
+                <Link to={`/shopping-cart/shop/${id}`}>
                   <div>{name}</div>
                 </Link>
                 <div>$ {price}</div>

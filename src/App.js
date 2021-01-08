@@ -56,20 +56,28 @@ export default function App() {
         <Navbar getItemsInCart={getItemsInCart} />
         <Switch>
           <div className="container">
-            <Route exact path="/" render={(props) => <Homepage {...props} />} />
-            <Route exact path="/shop" render={(props) => <Shop {...props} />} />
             <Route
               exact
-              path="/about"
+              path="/shopping-cart/"
+              render={(props) => <Homepage {...props} />}
+            />
+            <Route
+              exact
+              path="/shopping-cart/shop"
+              render={(props) => <Shop {...props} />}
+            />
+            <Route
+              exact
+              path="/shopping-cart/about"
               render={(props) => <Aboutpage {...props} />}
             />
             <Route
-              path="/shop/:itemID"
+              path="/shopping-cart/shop/:itemID"
               render={(props) => <Item {...props} addItem={addItem} />}
             />
             <Route
               exact
-              path="/cart"
+              path="/shopping-cart/cart"
               render={(props) => (
                 <Cart
                   {...props}

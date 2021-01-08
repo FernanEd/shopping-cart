@@ -23,7 +23,7 @@ export default function Shop() {
           let { id, name, price, imgsrc } = itemData;
           return (
             <div key={id} className="shop-item">
-              <Link to={`/shop/${id}`}>
+              <Link to={`/shopping-cart/shop/${id}`}>
                 <div className="shop-item-title">{name}</div>
                 <img src={imgsrc} />
                 <div className="shop-item-price">$ {price}</div>

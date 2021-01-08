@@ -18,25 +18,25 @@ export default function Navbar({ getItemsInCart }) {
 
         <div>
           <ul className="nav-ul">
-            <Link to="/">
+            <Link to="/shopping-cart/">
               <li className="nav-item">
                 <AiFillHome />
                 Home
               </li>
             </Link>
-            <Link to="/shop">
+            <Link to="/shopping-cart/shop">
               <li className="nav-item">
                 <AiOutlineShop />
                 Shop
               </li>
             </Link>
-            <Link to="/about">
+            <Link to="/shopping-cart/about">
               <li className="nav-item">
                 <AiFillQuestionCircle />
                 About
               </li>
             </Link>
-            <Link to="/cart">
+            <Link to="/shopping-cart/cart">
               <li className="nav-item">
                 <AiOutlineShoppingCart />
                 Cart {itemsInCart ? `(${itemsInCart})` : null}
