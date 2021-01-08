@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 export default function ShopNav({ changeTab }) {
   return (
-    <nav>
-      <ul>
+    <nav className="tab-nav">
+      <ul className="tab-ul">
         <li id="sweater" onClick={changeTab}>
           Sweaters
         </li>

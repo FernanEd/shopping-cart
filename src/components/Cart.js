@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { AiOutlineDelete } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 export default function Cart({ cartItems, removeItem }) {
@@ -11,24 +12,40 @@ export default function Cart({ cartItems, removeItem }) {
   }, []);
 
   return (
-    <div>
+    <div id="cart-wrapper">
+      <h2>Your shopping cart</h2>
       {cartItems.map((itemData) => {
         let { id, name, price, imgsrc, quantity } = itemData;
         return (
-          <div key={id}>
-            <Link to={`/shop/${id}`}>
-              <div>{name}</div>
+          <div key={id} className="cart-item">
+            <div className="cart-item-img">
               <img src={imgsrc} />
-              <div>{quantity} on cart</div>
-              <div>$ {price}</div>
-            </Link>
-            <button onClick={() => removeItem(itemData)}>
-              Remove one from cart
-            </button>
+            </div>
+            <div className="cart-item-details">
+              <div>
+                <Link to={`/shop/${id}`}>
+                  <div>{name}</div>
+                </Link>
+                <div>$ {price}</div>
+                <div className="text-primary">{quantity} on cart</div>
+              </div>
+
+              <div className="cart-item-controls">
+                <button
+                  onClick={() => removeItem(itemData)}
+                  className="btn btn-secondary"
+                >
+                  <AiOutlineDelete />
+                  Remove one from cart
+                </button>
+              </div>
+            </div>
           </div>
         );
       })}
-      <div>Total in cart: {cartTotal}</div>
+      <div id="cart-total">
+        Total in cart: $ {Math.round(cartTotal * 100) / 100}
+      </div>
     </div>
   );
 }

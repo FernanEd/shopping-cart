@@ -17,18 +17,16 @@ export default function Shop() {
 
   return (
     <div>
-      Shop
       <ShopNav changeTab={changeTab} />
-      <div>
-        Items {tab}
+      <div className="shop-wrapper">
         {displayedItems.map((itemData) => {
           let { id, name, price, imgsrc } = itemData;
           return (
-            <div key={id}>
+            <div key={id} className="shop-item">
               <Link to={`/shop/${id}`}>
-                <div>{name}</div>
+                <div className="shop-item-title">{name}</div>
                 <img src={imgsrc} />
-                <div>$ {price}</div>
+                <div className="shop-item-price">$ {price}</div>
               </Link>
             </div>
           );

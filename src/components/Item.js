@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { AiOutlinePlusCircle, AiOutlineShoppingCart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 import shopItems from '../data.js';
 
 export default function Item({ match, addItem }) {
@@ -9,11 +11,29 @@ export default function Item({ match, addItem }) {
   useEffect(() => {}, []);
 
   return (
-    <div>
-      <div>{name}</div>
-      <img src={imgsrc} />
-      <div>$ {price}</div>
-      <button onClick={() => addItem(itemData)}>Add to cart</button>
+    <div id="display-page">
+      <div className="display-image">
+        <img src={imgsrc} />
+      </div>
+      <div className="display-main">
+        <div className="display-details">
+          <div>{name}</div>
+          <div>$ {price}</div>
+        </div>
+
+        <div className="display-controls">
+          <button onClick={() => addItem(itemData)} className="btn btn-primary">
+            <AiOutlinePlusCircle />
+            Add to cart
+          </button>
+          <Link to="/cart">
+            <button className="btn btn-secondary">
+              <AiOutlineShoppingCart />
+              Payout
+            </button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }
