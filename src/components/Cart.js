@@ -43,8 +43,17 @@ export default function Cart({ cartItems, removeItem }) {
           </div>
         );
       })}
-      <div id="cart-total">
-        Total in cart: $ {Math.round(cartTotal * 100) / 100}
+      <div id="cart-status">
+        {cartItems.length > 0 ? (
+          <div id="cart-total">
+            Total in cart: $ {Math.round(cartTotal * 100) / 100}
+            <button id="payment-btn" className="btn btn-success">
+              Make payment
+            </button>
+          </div>
+        ) : (
+          'Cart empty.'
+        )}
       </div>
     </div>
   );

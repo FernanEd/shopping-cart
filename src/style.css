@@ -314,8 +314,21 @@ a:hover {
   justify-content: space-between;
 }
 
-#cart-total {
+#cart-status {
   font-size: 1.5em;
+}
+
+#cart-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+#payment-btn {
+  font-size: 0.75em;
+}
+
+.page {
+  padding: 2em 0;
 }
 
 @media (max-width: 678px) {
